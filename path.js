@@ -10,15 +10,15 @@ function buildPath(p,n){
       path[i] = true;
     }
   }
-  path[i] = true;
+  path[n-1] = true;
   return path[i];
 }
 
 function stroll(path,index){
-  if(path == ){
+  if(path[index] == true){
     return 1;
   }
-  else if(path > path.length){
+  else if(path[index] == false){
     return 0;
   }
   else{
@@ -27,7 +27,15 @@ function stroll(path,index){
 }
 
 function rsj(path,index){
-
+  if(index == path.length-1){
+    return 1;
+  }
+  else if(path[index] == false){
+    return 0;
+  }
+  else{
+    return rsj(path,index+1) + rsj(path,index+2) + rsj(path,index+5);
+  }
 }
 
 
